@@ -6,23 +6,6 @@ import { AntiHero } from '../../models/anti-hero.interface';
   templateUrl: './anti-hero-form.component.html',
   styleUrls: ['./anti-hero-form.component.sass']
 })
-export class AntiHeroFormComponent implements OnInit {
-
-  @Input()
-  headers: Array<{headerName: string, fieldName: keyof AntiHero}> = [];
-  @Input()
-  antiHeroes: Array<AntiHero> = [];
-  @Output()
-  antiHero = new EventEmitter();
-
-  constructor(){};
-
-  ngOnInit(): void {
-
-  }
-
-  selectAntiHero(antiHero: AntiHero){
-    this.antiHero.emit(antiHero);
-  }
+export class AntiHeroFormComponent{
 
 }
