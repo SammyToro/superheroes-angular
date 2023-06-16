@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AntiHero } from '../../models/anti-hero.interface';
+import { TableActions } from '../../enums/table-actions.enum';
 
 @Component({
   selector: 'app-anti-hero-list',
@@ -13,16 +14,22 @@ export class AntiHeroListComponent implements OnInit {
   @Input()
   antiHeroes: Array<AntiHero> = [];
   @Output()
-  antiHero = new EventEmitter();
+  antiHero = new EventEmitter<{antiHero: AntiHero, action: TableActions}>();
+  headerFields: string[] = [];
 
   constructor(){};
 
   ngOnInit(): void {
-
+    this.getHeaderFields();
   }
 
-  selectAntiHero(antiHero: AntiHero){
-    this.antiHero.emit(antiHero);
+  getHeaderFields(){
+    this.headerFields = this.headers.map((data) => data.fieldName);
+    this.headerFields.push("actions");
+  }
+
+  selectAntiHero(antiHero: AntiHero, action: TableActions){
+    this.antiHero.emit({antiHero,action});
   }
 
 }
