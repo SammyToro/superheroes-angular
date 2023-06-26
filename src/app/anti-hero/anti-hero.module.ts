@@ -8,6 +8,7 @@ import { AntiHeroRoutingModule } from './anti-hero-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { AntiHeroCommandBarComponent } from './components/anti-hero-command-bar/anti-hero-command-bar.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -22,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     AntiHeroRoutingModule,
+    HttpClientModule,
     MaterialModule,
     ReactiveFormsModule
   ]
