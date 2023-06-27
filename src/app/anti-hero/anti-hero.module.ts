@@ -9,6 +9,10 @@ import { MaterialModule } from '../material/material.module';
 import { AntiHeroCommandBarComponent } from './components/anti-hero-command-bar/anti-hero-command-bar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { AntiHeroEffects } from './state/anti-hero.effects';
+import { antiHeroReducer } from './state/anti-hero.reducers';
+import { EffectsModule } from '@ngrx/effects';
 
 
 
@@ -25,7 +29,9 @@ import { HttpClientModule } from '@angular/common/http';
     AntiHeroRoutingModule,
     HttpClientModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forFeature('antiHeroState',antiHeroReducer),
+    EffectsModule.forRoot([AntiHeroEffects])
   ]
 })
 export class AntiHeroModule { }

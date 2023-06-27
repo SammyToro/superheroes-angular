@@ -8,6 +8,7 @@ import { EMPTY } from "rxjs";
 
 @Injectable()
 export class AntiHeroEffects{
+
   constructor(
     private actions$: Actions,
     private antiHeroService: AntiHeroService,
