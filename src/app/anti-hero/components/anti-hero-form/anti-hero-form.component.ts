@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class AntiHeroFormComponent implements OnInit{
 
   @Input()
-  selectedId = "";
+  selectedAntiHero: AntiHero | null = null;
 
   @Input()
   actionButtonLabel: string = 'Create';
@@ -35,7 +35,7 @@ export class AntiHeroFormComponent implements OnInit{
   }
 
   checkAction(){
-    if(this.selectedId){
+    if(this.selectedAntiHero){
       this.actionButtonLabel  = "Update";
       this.patchDataValues();
     }
