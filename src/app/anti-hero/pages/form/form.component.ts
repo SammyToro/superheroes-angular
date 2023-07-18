@@ -33,11 +33,11 @@ export class FormComponent implements OnInit {
 
   formAction(data: {value: AntiHero, action: string}){
     switch(data.action){
-      case "CREATE": {
+      case "Create": {
         this.store.dispatch({type: AntiHeroActions.ADD_ANTI_HERO_API,payload: data.value});
         return;
       }
-      case "UPDATE": {
+      case "Update": {
         this.store.dispatch({type: AntiHeroActions.MODIFY_ANTI_HERO_API,payload: data.value});
         return;
       }

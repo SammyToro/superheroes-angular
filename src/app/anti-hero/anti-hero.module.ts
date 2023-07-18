@@ -13,6 +13,7 @@ import { StoreModule } from '@ngrx/store';
 import { AntiHeroEffects } from './state/anti-hero.effects';
 import { antiHeroReducer } from './state/anti-hero.reducers';
 import { EffectsModule } from '@ngrx/effects';
+import { CoreModule } from '../core/core.module';
 
 
 
@@ -26,12 +27,13 @@ import { EffectsModule } from '@ngrx/effects';
   ],
   imports: [
     CommonModule,
+    CoreModule,
     AntiHeroRoutingModule,
     HttpClientModule,
     MaterialModule,
     ReactiveFormsModule,
     StoreModule.forFeature('antiHeroState',antiHeroReducer),
-    EffectsModule.forRoot([AntiHeroEffects])
+    EffectsModule.forFeature([AntiHeroEffects])
   ]
 })
 export class AntiHeroModule { }

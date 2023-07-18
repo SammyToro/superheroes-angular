@@ -47,7 +47,7 @@ export class AntiHeroEffects{
   //Add Anti-Hero to the database
   addAntiHero$ = createEffect(() => {
     return this.actions$.pipe(
-        ofType(AntiHeroActions.REMOVE_ANTI_HERO_API),
+        ofType(AntiHeroActions.ADD_ANTI_HERO_API),
         mergeMap((data: {type: string, payload: AntiHero}) =>
           this.antiHeroService.addAntiHero(data.payload).pipe(
             map(antiHeroes => ({
