@@ -8,7 +8,9 @@ import { AuthenticateService } from 'src/app/core/services/authenticate.service'
   styleUrls: ['./login.component.sass']
 })
 export class LoginComponent {
-  constructor(private authService: AuthenticateService, private router: Router){};
+  constructor(private authService: AuthenticateService, private router: Router){
+    this.checkJWT();
+  };
 
   submit(data: {email: string, password: string}){
     this.authService.login(data).subscribe(
@@ -17,5 +19,11 @@ export class LoginComponent {
         localStorage.setItem('token', data.token);
       }
     )
+  }
+
+  checkJWT() {
+    if(this.authService.isAuthenticated()){
+      this.router.navigate(['/anti-heroes'])
+    }
   }
 }

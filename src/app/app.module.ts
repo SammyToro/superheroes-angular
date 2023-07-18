@@ -25,7 +25,7 @@ import { JwtModule } from '@auth0/angular-jwt';
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([]),
-    // JwtModule.forRoot({})
+    JwtModule.forRoot({})
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true
