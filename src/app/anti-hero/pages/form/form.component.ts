@@ -6,13 +6,14 @@ import { AppState } from 'src/app/state/app.state';
 import { AntiHeroActions } from '../../state/anti-hero.actions';
 import { Observable } from 'rxjs';
 import { selectAntiHero } from '../../state/anti-hero.selectors';
+import { CanComponentDeactivate } from 'src/app/core/guards/form.guard';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.sass']
 })
-export class FormComponent implements OnInit {
+export class FormComponent implements OnInit,CanComponentDeactivate {
   antiHero$: Observable<AntiHero | undefined>;
   antiHero: AntiHero | null = null;
   constructor(
@@ -43,6 +44,11 @@ export class FormComponent implements OnInit {
       }
       default: ""
     }
+  }
+
+  canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
+    const confirmation = window.confirm('Are you sure ?');
+    return confirmation;
   }
 
 }

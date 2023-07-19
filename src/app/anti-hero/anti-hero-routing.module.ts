@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ListComponent } from './pages/list/list.component';
 import { FormComponent } from './pages/form/form.component';
+import { formGuard } from '../core/guards/form.guard';
 
 const routes: Routes = [
   {
@@ -14,10 +15,12 @@ const routes: Routes = [
     children: [
       {
         path: "",
+        canDeactivate: [formGuard],
         component: FormComponent
       },
       {
         path: ":id",
+        canDeactivate: [formGuard],
         component: FormComponent
       }
     ]
