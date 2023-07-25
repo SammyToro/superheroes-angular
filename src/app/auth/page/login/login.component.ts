@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
@@ -13,7 +13,7 @@ import { User } from '../../models/user.interface';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.sass']
 })
-export class LoginComponent{
+export class LoginComponent implements OnInit{
 
   error$ = this.store.select(selectError());
 
@@ -23,7 +23,12 @@ export class LoginComponent{
               private _snackBar: MatSnackBar){
     this.checkJWT();
     this.getError();
-  };
+  }
+
+  ngOnInit(): void {
+
+  }
+;
 
   submit(data: User){
     this.store.dispatch({type: AuthActions.LOGIN,payload: data});

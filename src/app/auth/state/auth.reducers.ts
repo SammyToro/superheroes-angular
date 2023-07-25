@@ -2,11 +2,13 @@ import { createReducer, on, State, Action } from "@ngrx/store";
 import { setError, setToken } from "./auth.actions";
 
 export interface AuthState {
+  userDetails: any,
   token: string,
   error: any
 }
 
 export const initialState: AuthState = {
+  userDetails: null,
   token: "",
   error: null
 }
