@@ -1,10 +1,10 @@
 <p>
   <mat-toolbar>
-    <button mat-raised-button color="primary" (click)="emitAction(0)">
+    <button mat-raised-button color="primary" (click)="emitAction(0)" data-cy="create">
       <mat-icon>fiber_new</mat-icon> Create
     </button>
     &nbsp;
-    <button mat-raised-button color="warn" (click)="emitAction(1)">
+    <button mat-raised-button color="warn" (click)="emitAction(1)" data-cy="delete-all">
       <mat-icon>delete</mat-icon> Delete All
     </button>
   </mat-toolbar>
