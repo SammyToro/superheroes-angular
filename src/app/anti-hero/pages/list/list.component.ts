@@ -48,8 +48,8 @@ export class ListComponent implements OnInit {
   selectAntiHero(data: {antiHero: AntiHero, action: TableActions}){
     // this.router.navigate(['anti-heroes','form',data.antiHero.id]);
     switch(data.action){
-      case TableActions.VIEW:{
-        this.route.navigate(['anti-heroes','form',data.antiHero.id]);
+      case TableActions.View: {
+        this.router.navigate(['anti-heroes','form',data.antiHero.id]);
         return;
       }
       case TableActions.Delete: {
